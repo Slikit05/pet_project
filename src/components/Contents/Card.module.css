@@ -1,0 +1,37 @@
+.item {
+  padding: 10px;
+  overflow: hidden;
+  border: 2px solid rgb(27, 83, 109);
+  border-radius: 10px;
+  & img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+  }
+}
+
+:root {
+  --green-color: rgb(11, 108, 187);
+}
+
+.text {
+  
+  border-top: none;
+  &>div>span {
+    display: block;
+    color: #fff;
+    line-height: 1.2;
+    padding: 3px 0;
+    font-size: 16px;
+  }
+}
+
+.name {
+  color: #fff;
+  font-size: 22px;
+  line-height: 1.2;
+  display: block;
+  padding: 10px 0;
+  text-shadow: 2px 0 var(--green-color), -2px 0 var(--green-color), 0 2px var(--green-color), 0 -2px var(--green-color),
+               1px 1px var(--green-color), -1px -1px var(--green-color), 1px -1px var(--green-color), -1px 1px var(--green-color);
+}

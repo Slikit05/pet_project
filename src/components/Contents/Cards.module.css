@@ -1,0 +1,12 @@
+.cardsWrapper {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 32px;
+  row-gap: 32px;
+  margin-bottom: 50px;
+}

@@ -1,0 +1,33 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Get Schwifty';
+  src: url('fonts/get_schwifty.ttf');
+  src: url('fonts/get_schwifty.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ellograph CF';
+  src: local('fonts/EllographCF/Ellograph CF Regular'), local('fonts/EllographCF/Ellograph-CF-Regular'),
+      url('fonts/EllographCF/EllographCF-Regular.woff2') format('woff2'),
+      url('fonts/EllographCF/EllographCF-Regular.woff') format('woff'),
+      url('fonts/EllographCF/EllographCF-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Ellograph CF', sans-serif;
+  background-color: rgba(0, 0, 0, 1);
+}
