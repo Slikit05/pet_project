@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import styles from './App.module.css';
 import Cards from "./components/Contents/Cards";
 import Navigation from "./components/UI/Navigation";
 
