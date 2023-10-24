@@ -16,7 +16,7 @@ const App = () => {
       })
   }, [address]);
   
-  console.log(infoObject);
+  // console.log(infoObject);
 
   return (
     <section>
