@@ -1,11 +1,12 @@
+import React, { useState } from "react";
 import styles from './Pagination.module.css'
 
 const Pagination = (props) => {
 
-  const arrTest = ['1', '2', '3', '4', '...', '6',]
+  const [arrTest, setArrTest] = useState(['1', '2', '3', '4', '...', '6',]);
   
   if (typeof props.totalCurrentPage === 'number') {
-    console.log(props.totalCurrentPage)
+    // console.log(props.totalCurrentPage)
   }
 
   return (
