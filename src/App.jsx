@@ -17,8 +17,6 @@ const App = () => {
       })
   }, [address])
 
-  // console.log(infoObject);
-
   return (
     <section>
       <Cards cardsArr={infoObject.results} />

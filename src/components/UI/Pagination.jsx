@@ -1,27 +1,46 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import styles from './Pagination.module.css'
 
 const Pagination = (props) => {
-
-  const [arrTest, setArrTest] = useState(['1', '2', '3', '4', '...', '6',]);
-  
-  if (typeof props.totalCurrentPage === 'number') {
-    // console.log(props.totalCurrentPage)
-  }
+  const [currentPage, setCurrentPage] = useState(1)
 
   return (
     <ul className={props.className} onClick={props.onClick}>
-      {arrTest.map((item, index) => {
+      {[...Array(6)].map((el, index) => {
         if (index === 4) {
-          return <li key={index}><a href="#" key={index} data-value='...'>...</a></li>
+          return (
+            <li key={index}>
+              <button>...</button>
+            </li>
+          )
         } else if (index === 5) {
-          return <li key={index}><a href="#" data-value={props.totalCurrentPage}>{props.totalCurrentPage}</a></li>
+          return (
+            <li key={index}>
+              <button
+                onClick={() => {
+                  props.changeAdr(`https://rickandmortyapi.com/api/character?page=${index}`)
+                }}
+              >
+                {props.totalCurrentPage}
+              </button>
+            </li>
+          )
         } else {
-          return <li key={index}><a href="#" data-value={index + 1}>{index + 1}</a></li>
+          return (
+            <li key={index}>
+              <button
+                onClick={() => {
+                  props.changeAdr(`https://rickandmortyapi.com/api/character?page=${index + 1}`)
+                }}
+              >
+                {index + 1}
+              </button>
+            </li>
+          )
         }
       })}
     </ul>
   )
 }
 
-export default Pagination;
+export default Pagination
