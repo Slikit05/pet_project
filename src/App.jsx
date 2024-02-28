@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import Cards from "./components/Contents/Cards";
 import Navigation from "./components/UI/Navigation";
 
+const BASE_URL = 'https://rickandmortyapi.com/api/'
+
 const App = () => {
-  const [address, setAddress] = useState('https://rickandmortyapi.com/api/character');
+  const [address, setAddress] = useState(BASE_URL + 'character');
   const [infoObject, setInfoObject] = useState({info: {}, results: []});
 
   useEffect(() => {
@@ -21,7 +23,7 @@ const App = () => {
   return (
     <section>
       <Cards cardsArr={infoObject.results} />
-      <Navigation object={infoObject} changeAdr={setAddress} />
+      <Navigation object={infoObject} baseUrl={BASE_URL} changeAdr={setAddress} />
     </section>
   );
 };
