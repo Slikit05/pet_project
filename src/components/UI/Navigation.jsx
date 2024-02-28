@@ -17,16 +17,6 @@ const Navigation = (props) => {
     }
   }
 
-  // const changePageHandler = (event) => {
-  //   event.preventDefault()
-  //   if (event.target.nodeName.toLowerCase() === 'a') {
-  //     console.log(event.target.dataset.value)
-  //     if (event.target.dataset.value !== '...') {
-  //       props.changeAdr(`https://rickandmortyapi.com/api/character?page=${event.target.dataset.value}`)
-  //     }
-  //   }
-  // }
-
   return (
     <section className={styles.Navigation}>
       <Arrow className={`${styles.arrow} ${styles.prev}`} onClick={prevPageHandler} />
