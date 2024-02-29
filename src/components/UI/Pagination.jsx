@@ -27,58 +27,73 @@ import { returnPaginationRange } from '../../utils/appUtils'
 
 const Pagination = (props) => {
   const [currentPage, setCurrentPage] = useState(1)
-  const startPage = 1
-  const [rangePage, setRangePage] = useState(1)
+  let startPage = 1
+  let rangePage = currentPage
   const endPage = props.totalCurrentPage
+  const DOTS = '...'
+
+  const arr = [...Array(6)]
+
+  const changeCurrent = (number) => {
+    props.changeAdr(`https://rickandmortyapi.com/api/character?page=${number}`)
+    setCurrentPage(number)
+  }
 
   return (
     <ul className={props.className}>
-      {[...Array(6)].map((el, index) => {
-        if (index === startPage) {
+      {arr.map((el, index) => {
+        if (index === startPage - 1) {
           return (
             <li key={index}>
               <button
                 onClick={() => {
-                  props.changeAdr(`https://rickandmortyapi.com/api/character?page=${index}`)
+                  changeCurrent(startPage)
                 }}
               >
                 {startPage}
               </button>
             </li>
           )
-        } else if (index === )
+        } else if (index === 1 && currentPage >= startPage + 2) {
+          return (
+            <li key={index}>
+              <button>{DOTS}</button>
+            </li>
+          )
+        } else if (index < arr.length - 2) {
+          rangePage++
+          const number = rangePage
 
-        // if (index === 4) {
-        //   return (
-        //     <li key={index}>
-        //       <button>...</button>
-        //     </li>
-        //   )
-        // } else if (index === 5) {
-        //   return (
-        //     <li key={index}>
-        //       <button
-        //         onClick={() => {
-        //           props.changeAdr(`https://rickandmortyapi.com/api/character?page=${index}`)
-        //         }}
-        //       >
-        //         {endPage}
-        //       </button>
-        //     </li>
-        //   )
-        // } else {
-        //   return (
-        //     <li key={index}>
-        //       <button
-        //         onClick={() => {
-        //           props.changeAdr(`https://rickandmortyapi.com/api/character?page=${index + 1}`)
-        //         }}
-        //       >
-        //         {index + 1}
-        //       </button>
-        //     </li>
-        //   )
-        // }
+          return (
+            <li key={index}>
+              <button
+                onClick={() => {
+                  changeCurrent(number)
+                }}
+              >
+                {number}
+              </button>
+            </li>
+          )
+        } else if (index === arr.length - 2 && currentPage <= endPage - 1) {
+          return (
+            <li key={index}>
+              <button>{DOTS}</button>
+            </li>
+          )
+        } else if (index === arr.length - 1) {
+          return (
+            <li key={index}>
+              <button
+                onClick={() => {
+                  changeCurrent(endPage)
+                }}
+              >
+                {endPage}
+              </button>
+            </li>
+          )
+        }
       })}
     </ul>
   )
