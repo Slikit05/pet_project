@@ -34,61 +34,20 @@ const Pagination = (props) => {
   return (
     <ul className={props.className}>
       {[...Array(6)].map((el, index) => {
-        // if (index === startPage) {
-        //   return (
-        //     <li key={index}>
-        //       <button
-        //         onClick={() => {
-        //           props.changeAdr(`https://rickandmortyapi.com/api/character?page=${index}`)
-        //         }}
-        //       >
-        //         {startPage}
-        //       </button>
-        //     </li>
-        //   )
-        // } else if (index === currentPage) {
-        //   return (
-        //     <li key={index}>
-        //       <button
-        //         onClick={() => {
-        //           props.changeAdr(`https://rickandmortyapi.com/api/character?page=${index}`)
-        //         }}
-        //       >
-        //         {index}
-        //       </button>
-        //     </li>
-        //   )
-        // } else if (index === currentPage - (rangePage + 1) || index === currentPage + (rangePage + 1)) {
-        //   return (
-        //     <li key={index}>
-        //       <button>...</button>
-        //     </li>
-        //   )
-        // } else if (index - rangePage <= currentPage && currentPage <= index + rangePage) {
-        //   return (
-        //     <li key={index}>
-        //       <button
-        //         onClick={() => {
-        //           props.changeAdr(`https://rickandmortyapi.com/api/character?page=${index}`)
-        //         }}
-        //       >
-        //         {index}
-        //       </button>
-        //     </li>
-        //   )
-        // } else if (index === endPage) {
-        //   return (
-        //     <li key={index}>
-        //       <button
-        //         onClick={() => {
-        //           props.changeAdr(`https://rickandmortyapi.com/api/character?page=${index}`)
-        //         }}
-        //       >
-        //         {endPage}
-        //       </button>
-        //     </li>
-        //   )
-        // }
+        if (index === startPage) {
+          return (
+            <li key={index}>
+              <button
+                onClick={() => {
+                  props.changeAdr(`https://rickandmortyapi.com/api/character?page=${index}`)
+                }}
+              >
+                {startPage}
+              </button>
+            </li>
+          )
+        } else if (index === )
+
         // if (index === 4) {
         //   return (
         //     <li key={index}>
