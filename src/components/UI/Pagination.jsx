@@ -4,9 +4,8 @@ import styles from './Pagination.module.css'
 const Pagination = (props) => {
   const [currentPage, setCurrentPage] = useState(1)
   let startPage = 1
-  let rangePage = 3
+  let rangePage = 1
   const endPage = props.totalCurrentPage
-  const DOTS = '...'
 
   let minVisiblePage = currentPage - rangePage < startPage ? startPage : currentPage - rangePage
   let maxVisiblePage = currentPage + rangePage > endPage ? endPage : currentPage + rangePage
