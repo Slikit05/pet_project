@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './Pagination.module.css'
 
 const Pagination = (props) => {
-  const [currentPage, setCurrentPage] = useState(1)
+  const currentPage = props.currentPage
   let startPage = 1
   let rangePage = 1
   const endPage = props.totalCurrentPage
@@ -32,14 +32,14 @@ const Pagination = (props) => {
 
   const changeCurrent = (number) => {
     props.changeAdr(`https://rickandmortyapi.com/api/character?page=${number}`)
-    setCurrentPage(number)
+    props.setCurrentPage(number)
   }
 
   return (
-    <ul className={props.className}>
+    <ul className={styles.list}>
       {pages.map((page, index) => {
         return (
-          <li key={index}>
+          <li key={index} className={page === currentPage ? styles.active : ''}>
             <button
               onClick={() => {
                 changeCurrent(page)

@@ -4,11 +4,13 @@
   padding: 0;
   margin: 0 -10px;
   align-self: center;
+
   & li {
     padding: 0 10px;
     margin: 0;
     line-height: normal;
-    & a {
+
+    & button {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -22,8 +24,16 @@
       cursor: pointer;
       font-size: 16px;
       line-height: 1.1;
-      &.active {
-        color: red;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &.active {
+      & button {
+        background-color: #f3c700;
+        color: #000;
       }
     }
   }
