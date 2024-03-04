@@ -28,11 +28,32 @@ import { returnPaginationRange } from '../../utils/appUtils'
 const Pagination = (props) => {
   const [currentPage, setCurrentPage] = useState(1)
   let startPage = 1
-  let rangePage = currentPage
+  let rangePage = 3
   const endPage = props.totalCurrentPage
   const DOTS = '...'
 
-  const arr = [...Array(6)]
+  let minVisiblePage = currentPage - rangePage < startPage ? startPage : currentPage - rangePage
+  let maxVisiblePage = currentPage + rangePage > endPage ? endPage : currentPage + rangePage
+
+  let pages = []
+
+  if (startPage <= minVisiblePage - 1) {
+    pages.push(startPage)
+  }
+  if (startPage < minVisiblePage - 1) {
+    pages.push('...')
+  }
+
+  for (let idx = minVisiblePage; idx <= maxVisiblePage; idx++) {
+    pages.push(idx)
+  }
+
+  if (maxVisiblePage + 1 < endPage) {
+    pages.push('...')
+  }
+  if (maxVisiblePage + 1 <= endPage) {
+    pages.push(endPage)
+  }
 
   const changeCurrent = (number) => {
     props.changeAdr(`https://rickandmortyapi.com/api/character?page=${number}`)
@@ -41,59 +62,18 @@ const Pagination = (props) => {
 
   return (
     <ul className={props.className}>
-      {arr.map((el, index) => {
-        if (index === startPage - 1) {
-          return (
-            <li key={index}>
-              <button
-                onClick={() => {
-                  changeCurrent(startPage)
-                }}
-              >
-                {startPage}
-              </button>
-            </li>
-          )
-        } else if (index === 1 && currentPage >= startPage + 2) {
-          return (
-            <li key={index}>
-              <button>{DOTS}</button>
-            </li>
-          )
-        } else if (index < arr.length - 2) {
-          rangePage++
-          const number = rangePage
-
-          return (
-            <li key={index}>
-              <button
-                onClick={() => {
-                  changeCurrent(number)
-                }}
-              >
-                {number}
-              </button>
-            </li>
-          )
-        } else if (index === arr.length - 2 && currentPage <= endPage - 1) {
-          return (
-            <li key={index}>
-              <button>{DOTS}</button>
-            </li>
-          )
-        } else if (index === arr.length - 1) {
-          return (
-            <li key={index}>
-              <button
-                onClick={() => {
-                  changeCurrent(endPage)
-                }}
-              >
-                {endPage}
-              </button>
-            </li>
-          )
-        }
+      {pages.map((page, index) => {
+        return (
+          <li key={index}>
+            <button
+              onClick={() => {
+                changeCurrent(page)
+              }}
+            >
+              {page}
+            </button>
+          </li>
+        )
       })}
     </ul>
   )
